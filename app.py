@@ -13,15 +13,13 @@ def main():
     age = st.number_input('Umur (bulan)', min_value=0, max_value=72)
     gender = st.selectbox('Jenis Kelamin', ['Perempuan', 'Laki-laki'])
     height = st.number_input('Tinggi Badan (cm)', min_value=0.0, max_value=100.0)
+    weight = st.number_input('Berat Badan (kg)', min_value=0.0, max_value=30.0)
 
     # Encode the gender
-    if gender == 'Perempuan':
-        gender_encoded = 0
-    else:
-        gender_encoded = 1
+    gender_encoded = 0 if gender == 'Perempuan' else 1
 
     # Create a list of input features
-    input_features = [age, gender_encoded, height]
+    input_features = [age, gender_encoded, height, weight]
 
     # Make a prediction
     prediction = model.predict([input_features])
